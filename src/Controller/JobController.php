@@ -2,10 +2,12 @@
 
 namespace App\Controller;
 
+use App\Entity\Offre;
 use App\Repository\OffreRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 
 class JobController extends AbstractController
 {
@@ -16,4 +18,13 @@ class JobController extends AbstractController
             'offres' => $offreRepository->findAll(),
         ]);
     }
+
+    #[Route('/{id}', name: 'app_job_show')]
+    public function show(Offre $offre): Response
+    {
+        return $this->render('job/show.html.twig', [
+            'offre' => $offre,
+        ]);
+    }
+
 }
