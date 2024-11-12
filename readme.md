@@ -7,4 +7,3 @@
 
 . composer require --dev orm-fixtures
 . composer require --dev fakerphp/faker
-
